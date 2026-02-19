@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Simple Order — Demo</title>
+  <title>Simple Order — Customizable</title>
   <style>
     :root{
       --bg:#0b1220;
@@ -21,7 +21,7 @@
     *{box-sizing:border-box}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", "Noto Sans";
       background: radial-gradient(1200px 600px at 20% 0%, rgba(67,211,195,.22), transparent 50%),
                   radial-gradient(900px 500px at 90% 15%, rgba(255,184,74,.18), transparent 55%),
                   linear-gradient(180deg, #070c16, #060913 35%, #050711);
@@ -29,7 +29,6 @@
       min-height:100vh;
       padding:28px 16px;
     }
-
     .wrap{max-width:1100px;margin:0 auto;}
     .hero{
       background: linear-gradient(90deg, rgba(67,211,195,.25), rgba(255,184,74,.18));
@@ -37,25 +36,11 @@
       border-radius: calc(var(--radius) + 6px);
       padding:18px 18px;
       box-shadow: var(--shadow);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
     }
-    .hero h1{
-      margin:0;
-      font-size:20px;
-      letter-spacing:.2px;
-    }
-    .hero p{
-      margin:6px 0 0;
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.35;
-    }
-    .hero .badge{
-      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
-    }
+    .hero h1{margin:0;font-size:20px;letter-spacing:.2px}
+    .hero p{margin:6px 0 0;color:var(--muted);font-size:13px;line-height:1.35}
+    .hero .badge{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;}
     .pill{
       background: rgba(15,27,51,.75);
       border:1px solid var(--line);
@@ -63,26 +48,17 @@
       border-radius:999px;
       font-size:12px;
       color:var(--muted);
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
+      display:inline-flex; align-items:center; gap:8px;
       white-space:nowrap;
     }
-    .dot{
-      width:8px;height:8px;border-radius:50%;
-      background:var(--accent);
-      box-shadow:0 0 0 4px rgba(67,211,195,.15);
-    }
-
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(67,211,195,.15)}
     .grid{
       margin-top:16px;
       display:grid;
-      grid-template-columns: 1.3fr .9fr;
+      grid-template-columns: 1.35fr .85fr;
       gap:16px;
     }
-    @media (max-width: 920px){
-      .grid{grid-template-columns:1fr; }
-    }
+    @media (max-width: 920px){ .grid{grid-template-columns:1fr;} }
 
     .panel{
       background: rgba(15,27,51,.75);
@@ -93,11 +69,10 @@
     }
     .panelHead{
       padding:14px 16px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
+      display:flex; align-items:center; justify-content:space-between;
       border-bottom:1px dashed rgba(255,255,255,.18);
       background: linear-gradient(180deg, rgba(255,255,255,.06), transparent);
+      gap:12px;
     }
     .panelHead h2{
       margin:0;
@@ -106,75 +81,33 @@
       text-transform:uppercase;
       color:#cfe0ff;
     }
-    .panelHead .small{
-      font-size:12px;
-      color:var(--muted);
-    }
-
-    .menu{
-      padding:8px 10px 14px;
-    }
-    .category{
-      margin-top:10px;
-      padding:0 6px;
-    }
+    .panelHead .small{font-size:12px;color:var(--muted)}
+    .menu{padding:8px 10px 14px;}
+    .category{margin-top:10px;padding:0 6px;}
     .categoryTitle{
       margin:14px 0 8px;
-      font-size:13px;
-      color:#d9e6ff;
-      display:flex;
-      align-items:center;
-      gap:10px;
+      font-size:13px;color:#d9e6ff;
+      display:flex;align-items:center;gap:10px;
     }
-    .categoryTitle span{
-      color:var(--muted);
-      font-size:12px;
-      font-weight:500;
-    }
-    .hr{
-      flex:1;
-      height:1px;
-      background: rgba(255,255,255,.12);
-    }
+    .categoryTitle span{color:var(--muted);font-size:12px;font-weight:500}
+    .hr{flex:1;height:1px;background: rgba(255,255,255,.12)}
 
     .item{
       background: rgba(11,24,48,.55);
       border:1px solid rgba(255,255,255,.10);
       border-radius:14px;
-      padding:12px 12px;
+      padding:12px;
       display:grid;
       grid-template-columns: 1fr auto;
       gap:10px;
-      align-items:center;
+      align-items:start;
       margin-bottom:10px;
     }
-    .item h3{
-      margin:0;
-      font-size:14px;
-      font-weight:650;
-      letter-spacing:.2px;
-    }
-    .meta{
-      margin-top:4px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      color:var(--muted);
-      font-size:12px;
-    }
-    .price{
-      color:var(--accent2);
-      font-weight:700;
-    }
-    .time{
-      color:#b9c7e8;
-    }
-    .controls{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      justify-content:flex-end;
-    }
+    .item h3{margin:0;font-size:14px;font-weight:650;letter-spacing:.2px;}
+    .meta{margin-top:4px;display:flex;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:12px;}
+    .price{color:var(--accent2);font-weight:800;}
+    .time{color:#b9c7e8;}
+    .controls{display:flex;align-items:center;gap:8px;justify-content:flex-end;margin-top:2px;}
     .btn{
       border:1px solid rgba(255,255,255,.14);
       background: rgba(15,27,51,.85);
@@ -182,29 +115,71 @@
       padding:8px 10px;
       border-radius:12px;
       cursor:pointer;
-      font-weight:650;
+      font-weight:750;
       transition: transform .06s ease, background .2s ease, border-color .2s ease;
       user-select:none;
     }
     .btn:hover{background: rgba(25,45,82,.7); border-color: rgba(255,255,255,.22);}
     .btn:active{transform: translateY(1px);}
     .btn.icon{width:36px;height:34px; display:grid; place-items:center; padding:0;}
-    .qty{
-      min-width:22px;
-      text-align:center;
-      color:#dfe9ff;
-      font-weight:700;
-      font-size:13px;
-    }
     .btn.plus{border-color: rgba(67,211,195,.35);}
     .btn.minus{border-color: rgba(255,92,122,.35);}
     .btn.plus:hover{background: rgba(67,211,195,.14);}
     .btn.minus:hover{background: rgba(255,92,122,.14);}
+    .qty{min-width:22px;text-align:center;color:#dfe9ff;font-weight:800;font-size:13px;}
+
+    /* Options area */
+    .opts{
+      margin-top:10px;
+      border-top:1px solid rgba(255,255,255,.10);
+      padding-top:10px;
+      display:grid;
+      gap:10px;
+    }
+    .optBlock{
+      background: rgba(15,27,51,.35);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:12px;
+      padding:10px;
+    }
+    .optTitle{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:10px;
+      margin:0 0 8px;
+      font-size:12px;
+      color:#d9e6ff;
+      text-transform:uppercase;
+      letter-spacing:.35px;
+    }
+    .optHint{font-size:11px;color:rgba(255,255,255,.65);text-transform:none;letter-spacing:0}
+    .optGrid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap:8px;
+    }
+    @media (max-width:520px){ .optGrid{grid-template-columns:1fr;} }
+
+    .optRow{
+      display:flex;
+      gap:8px;
+      align-items:flex-start;
+      padding:8px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(11,24,48,.35);
+    }
+    .optRow label{cursor:pointer; width:100%;}
+    .optName{font-size:12px;color:#eaf1ff;font-weight:700}
+    .optSub{margin-top:2px;font-size:11px;color:rgba(255,255,255,.65);display:flex;gap:8px;flex-wrap:wrap}
+    .optP{color:var(--accent2);font-weight:800}
+    input[type="radio"], input[type="checkbox"]{
+      margin-top:2px;
+      accent-color: var(--accent);
+      transform: scale(1.05);
+    }
 
     /* Cart */
-    .cart{
-      padding:12px 14px 14px;
-    }
+    .cart{padding:12px 14px 14px;}
     .summaryBox{
       background: rgba(255,184,74,.16);
       border: 1px solid rgba(255,184,74,.28);
@@ -214,48 +189,26 @@
       display:grid;
       gap:6px;
     }
-    .summaryRow{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      font-size:13px;
-      color:#f7f0df;
-    }
+    .summaryRow{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#f7f0df;}
     .summaryRow strong{font-size:16px;color:#fff;}
     .summaryRow .muted{color: rgba(255,255,255,.7); font-size:12px;}
-    .cartList{
-      margin:0;
-      padding:0;
-      list-style:none;
-      display:grid;
-      gap:10px;
-    }
+    .cartList{margin:0;padding:0;list-style:none;display:grid;gap:10px;}
     .cartItem{
       background: rgba(11,24,48,.55);
       border:1px solid rgba(255,255,255,.10);
       border-radius:14px;
-      padding:10px 10px;
+      padding:10px;
       display:grid;
       grid-template-columns: 1fr auto;
       gap:8px;
       align-items:center;
     }
-    .cartItem .name{
-      font-size:13px;
-      font-weight:650;
-    }
+    .cartItem .name{font-size:13px;font-weight:750;}
     .cartItem .sub{
-      margin-top:2px;
+      margin-top:4px;
       color:var(--muted);
       font-size:12px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-    .cartItem .right{
-      display:flex;
-      align-items:center;
-      gap:8px;
+      display:flex; gap:8px; flex-wrap:wrap;
     }
     .chip{
       font-size:11px;
@@ -266,18 +219,14 @@
       background: rgba(15,27,51,.6);
       white-space:nowrap;
     }
-
-    .actions{
-      display:grid;
-      gap:10px;
-      margin-top:12px;
-    }
+    .cartItem .right{display:flex;align-items:center;gap:8px;}
+    .actions{display:grid;gap:10px;margin-top:12px;}
     .primary{
       background: linear-gradient(90deg, rgba(67,211,195,.95), rgba(67,211,195,.75));
       border:1px solid rgba(67,211,195,.55);
       color:#06221f;
-      font-weight:800;
-      padding:12px 12px;
+      font-weight:900;
+      padding:12px;
       border-radius:14px;
       cursor:pointer;
       transition: transform .06s ease, filter .2s ease;
@@ -288,17 +237,12 @@
       background: rgba(15,27,51,.85);
       border:1px solid rgba(255,255,255,.14);
       color: var(--text);
-      font-weight:750;
-      padding:12px 12px;
+      font-weight:800;
+      padding:12px;
       border-radius:14px;
       cursor:pointer;
     }
-    .empty{
-      padding:14px 6px 6px;
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.4;
-    }
+    .empty{padding:14px 6px 6px;color:var(--muted);font-size:13px;line-height:1.4;}
 
     /* Modal */
     .backdrop{
@@ -311,7 +255,7 @@
       z-index:50;
     }
     .modal{
-      max-width:560px;
+      max-width:600px;
       width:100%;
       background: rgba(15,27,51,.98);
       border:1px solid rgba(255,255,255,.16);
@@ -322,10 +266,7 @@
     .modalHead{
       padding:14px 16px;
       border-bottom:1px solid rgba(255,255,255,.10);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
       background: linear-gradient(90deg, rgba(67,211,195,.16), rgba(255,184,74,.12));
     }
     .modalHead h3{margin:0;font-size:14px;letter-spacing:.3px}
@@ -344,10 +285,7 @@
     .modalFoot{
       padding:12px 16px;
       border-top:1px solid rgba(255,255,255,.10);
-      display:flex;
-      gap:10px;
-      justify-content:flex-end;
-      flex-wrap:wrap;
+      display:flex; gap:10px; justify-content:flex-end; flex-wrap:wrap;
     }
   </style>
 </head>
@@ -357,7 +295,7 @@
     <div class="hero">
       <div>
         <h1>What would you like to order?</h1>
-        <p>Pick items on the left, review your cart on the right, then place your order to generate a clean summary list.</p>
+        <p>Each dish has custom options (e.g., no onion, extra sauce). Your chosen options will show in the cart and final summary.</p>
       </div>
       <div class="badge">
         <div class="pill"><span class="dot"></span> No login • No database</div>
@@ -372,7 +310,6 @@
           <h2>Menu</h2>
           <div class="small">Prices in $ • Prep time in minutes</div>
         </div>
-
         <div class="menu" id="menu"></div>
       </section>
 
@@ -429,78 +366,571 @@
   </div>
 
   <script>
-    // ====== MENU DATA (Western restaurant) ======
+    // ====== MENU DATA (Western restaurant) + per-item customization ======
+    // options schema:
+    // - type: "radio" or "checkbox"
+    // - key: internal key
+    // - label: display label
+    // - choices: [{ id, label, priceDelta, timeDelta }]
     const MENU = [
       {
         category: "Mains",
         items: [
-          { id: "ribeye", name: "Ribeye Steak (10oz)", price: 28.00, time: 18, note: "with herb butter" },
-          { id: "salmon", name: "Pan-Seared Salmon", price: 22.00, time: 14, note: "lemon dill sauce" },
-          { id: "alfredo", name: "Chicken Alfredo Pasta", price: 18.00, time: 12, note: "parmesan cream" },
-          { id: "burger", name: "Classic Cheeseburger", price: 16.00, time: 10, note: "fries optional (pick a side)" },
+          {
+            id: "ribeye",
+            name: "Ribeye Steak (10oz)",
+            price: 28.00,
+            time: 18,
+            note: "with herb butter",
+            options: [
+              {
+                type: "radio",
+                key: "doneness",
+                label: "Doneness",
+                choices: [
+                  { id: "rare", label: "Rare", priceDelta: 0, timeDelta: 0 },
+                  { id: "med-rare", label: "Medium Rare", priceDelta: 0, timeDelta: 1 },
+                  { id: "medium", label: "Medium", priceDelta: 0, timeDelta: 2 },
+                  { id: "well", label: "Well Done", priceDelta: 0, timeDelta: 4 },
+                ],
+                default: "med-rare"
+              },
+              {
+                type: "checkbox",
+                key: "steak_addons",
+                label: "Add-ons",
+                choices: [
+                  { id: "pepper_sauce", label: "Peppercorn Sauce", priceDelta: 1.50, timeDelta: 0 },
+                  { id: "mushrooms", label: "Sautéed Mushrooms", priceDelta: 2.00, timeDelta: 1 },
+                  { id: "extra_butter", label: "Extra Herb Butter", priceDelta: 0.75, timeDelta: 0 },
+                ]
+              }
+            ]
+          },
+          {
+            id: "salmon",
+            name: "Pan-Seared Salmon",
+            price: 22.00,
+            time: 14,
+            note: "lemon dill sauce",
+            options: [
+              {
+                type: "radio",
+                key: "sauce",
+                label: "Sauce",
+                choices: [
+                  { id: "lemon_dill", label: "Lemon Dill (default)", priceDelta: 0, timeDelta: 0 },
+                  { id: "teriyaki", label: "Teriyaki Glaze", priceDelta: 0.50, timeDelta: 0 },
+                  { id: "garlic_butter", label: "Garlic Butter", priceDelta: 0.75, timeDelta: 0 },
+                ],
+                default: "lemon_dill"
+              },
+              {
+                type: "checkbox",
+                key: "salmon_prefs",
+                label: "Preferences",
+                choices: [
+                  { id: "no_lemon", label: "No Lemon", priceDelta: 0, timeDelta: 0 },
+                  { id: "extra_sauce", label: "Extra Sauce", priceDelta: 0.50, timeDelta: 0 },
+                  { id: "less_salt", label: "Less Salt", priceDelta: 0, timeDelta: 0 },
+                ]
+              }
+            ]
+          },
+          {
+            id: "alfredo",
+            name: "Chicken Alfredo Pasta",
+            price: 18.00,
+            time: 12,
+            note: "parmesan cream",
+            options: [
+              {
+                type: "radio",
+                key: "pasta",
+                label: "Pasta Type",
+                choices: [
+                  { id: "fettuccine", label: "Fettuccine (default)", priceDelta: 0, timeDelta: 0 },
+                  { id: "penne", label: "Penne", priceDelta: 0, timeDelta: 0 },
+                  { id: "spaghetti", label: "Spaghetti", priceDelta: 0, timeDelta: 0 },
+                ],
+                default: "fettuccine"
+              },
+              {
+                type: "checkbox",
+                key: "alfredo_addons",
+                label: "Add-ons",
+                choices: [
+                  { id: "extra_cheese", label: "Extra Parmesan", priceDelta: 1.00, timeDelta: 0 },
+                  { id: "mushrooms", label: "Mushrooms", priceDelta: 1.50, timeDelta: 1 },
+                  { id: "spicy", label: "Make it Spicy", priceDelta: 0, timeDelta: 0 },
+                ]
+              },
+              {
+                type: "checkbox",
+                key: "alfredo_no",
+                label: "Remove",
+                choices: [
+                  { id: "no_garlic", label: "No Garlic", priceDelta: 0, timeDelta: 0 },
+                  { id: "no_onion", label: "No Onion", priceDelta: 0, timeDelta: 0 },
+                ]
+              }
+            ]
+          },
+          {
+            id: "burger",
+            name: "Classic Cheeseburger",
+            price: 16.00,
+            time: 10,
+            note: "pick your toppings",
+            options: [
+              {
+                type: "radio",
+                key: "bun",
+                label: "Bun",
+                choices: [
+                  { id: "brioche", label: "Brioche (default)", priceDelta: 0, timeDelta: 0 },
+                  { id: "sesame", label: "Sesame", priceDelta: 0, timeDelta: 0 },
+                  { id: "lettuce_wrap", label: "Lettuce Wrap", priceDelta: 0, timeDelta: 0 },
+                ],
+                default: "brioche"
+              },
+              {
+                type: "checkbox",
+                key: "toppings_remove",
+                label: "Remove",
+                choices: [
+                  { id: "no_onion", label: "No Onion", priceDelta: 0, timeDelta: 0 },
+                  { id: "no_pickle", label: "No Pickles", priceDelta: 0, timeDelta: 0 },
+                  { id: "no_tomato", label: "No Tomato", priceDelta: 0, timeDelta: 0 },
+                ]
+              },
+              {
+                type: "checkbox",
+                key: "toppings_add",
+                label: "Add-ons",
+                choices: [
+                  { id: "extra_cheese", label: "Extra Cheese", priceDelta: 1.25, timeDelta: 0 },
+                  { id: "bacon", label: "Add Bacon", priceDelta: 2.00, timeDelta: 1 },
+                  { id: "jalapeno", label: "Jalapeños", priceDelta: 0.75, timeDelta: 0 },
+                ]
+              }
+            ]
+          },
         ]
       },
       {
         category: "Sides",
         items: [
-          { id: "fries", name: "Truffle Fries", price: 7.00, time: 6, note: "parmesan + aioli" },
-          { id: "salad", name: "Garden Salad", price: 6.00, time: 4, note: "vinaigrette" },
-          { id: "mash", name: "Garlic Mashed Potatoes", price: 6.50, time: 7, note: "buttery" },
+          {
+            id: "fries",
+            name: "Truffle Fries",
+            price: 7.00,
+            time: 6,
+            note: "parmesan + aioli",
+            options: [
+              {
+                type: "radio",
+                key: "salt",
+                label: "Seasoning",
+                choices: [
+                  { id: "regular", label: "Regular Salt", priceDelta: 0, timeDelta: 0 },
+                  { id: "light", label: "Light Salt", priceDelta: 0, timeDelta: 0 },
+                  { id: "no", label: "No Salt", priceDelta: 0, timeDelta: 0 },
+                ],
+                default: "regular"
+              },
+              {
+                type: "checkbox",
+                key: "dips",
+                label: "Dips",
+                choices: [
+                  { id: "aioli", label: "Extra Aioli", priceDelta: 0.75, timeDelta: 0 },
+                  { id: "ketchup", label: "Ketchup", priceDelta: 0, timeDelta: 0 },
+                  { id: "bbq", label: "BBQ Sauce", priceDelta: 0.50, timeDelta: 0 },
+                ]
+              }
+            ]
+          },
+          {
+            id: "salad",
+            name: "Garden Salad",
+            price: 6.00,
+            time: 4,
+            note: "vinaigrette",
+            options: [
+              {
+                type: "radio",
+                key: "dressing",
+                label: "Dressing",
+                choices: [
+                  { id: "vinaigrette", label: "Vinaigrette (default)", priceDelta: 0, timeDelta: 0 },
+                  { id: "ranch", label: "Ranch", priceDelta: 0, timeDelta: 0 },
+                  { id: "caesar", label: "Caesar", priceDelta: 0, timeDelta: 0 },
+                ],
+                default: "vinaigrette"
+              },
+              {
+                type: "checkbox",
+                key: "salad_no",
+                label: "Remove",
+                choices: [
+                  { id: "no_onion", label: "No Onion", priceDelta: 0, timeDelta: 0 },
+                  { id: "no_croutons", label: "No Croutons", priceDelta: 0, timeDelta: 0 },
+                ]
+              },
+              {
+                type: "checkbox",
+                key: "salad_add",
+                label: "Add-ons",
+                choices: [
+                  { id: "avocado", label: "Add Avocado", priceDelta: 2.00, timeDelta: 0 },
+                  { id: "chicken", label: "Add Chicken", priceDelta: 3.50, timeDelta: 2 },
+                ]
+              }
+            ]
+          },
+          {
+            id: "mash",
+            name: "Garlic Mashed Potatoes",
+            price: 6.50,
+            time: 7,
+            note: "buttery",
+            options: [
+              {
+                type: "radio",
+                key: "texture",
+                label: "Texture",
+                choices: [
+                  { id: "smooth", label: "Smooth (default)", priceDelta: 0, timeDelta: 0 },
+                  { id: "chunky", label: "Chunky", priceDelta: 0, timeDelta: 0 },
+                ],
+                default: "smooth"
+              },
+              {
+                type: "checkbox",
+                key: "mash_add",
+                label: "Add-ons",
+                choices: [
+                  { id: "gravy", label: "Add Gravy", priceDelta: 1.00, timeDelta: 0 },
+                  { id: "extra_butter", label: "Extra Butter", priceDelta: 0.50, timeDelta: 0 },
+                ]
+              },
+              {
+                type: "checkbox",
+                key: "mash_no",
+                label: "Remove",
+                choices: [
+                  { id: "no_garlic", label: "No Garlic", priceDelta: 0, timeDelta: 0 },
+                ]
+              }
+            ]
+          },
         ]
       },
       {
         category: "Drinks",
         items: [
-          { id: "cola", name: "Sparkling Cola", price: 3.50, time: 0, note: "chilled" },
-          { id: "lemonade", name: "Fresh Lemonade", price: 4.50, time: 2, note: "house-made" },
-          { id: "latte", name: "Iced Latte", price: 5.50, time: 3, note: "espresso + milk" },
+          {
+            id: "cola",
+            name: "Sparkling Cola",
+            price: 3.50,
+            time: 0,
+            note: "chilled",
+            options: [
+              {
+                type: "radio",
+                key: "ice",
+                label: "Ice Level",
+                choices: [
+                  { id: "regular", label: "Regular Ice", priceDelta: 0, timeDelta: 0 },
+                  { id: "less", label: "Less Ice", priceDelta: 0, timeDelta: 0 },
+                  { id: "none", label: "No Ice", priceDelta: 0, timeDelta: 0 },
+                ],
+                default: "regular"
+              }
+            ]
+          },
+          {
+            id: "lemonade",
+            name: "Fresh Lemonade",
+            price: 4.50,
+            time: 2,
+            note: "house-made",
+            options: [
+              {
+                type: "radio",
+                key: "sweet",
+                label: "Sweetness",
+                choices: [
+                  { id: "normal", label: "Normal", priceDelta: 0, timeDelta: 0 },
+                  { id: "less", label: "Less Sweet", priceDelta: 0, timeDelta: 0 },
+                  { id: "zero", label: "No Sugar", priceDelta: 0, timeDelta: 0 },
+                ],
+                default: "normal"
+              },
+              {
+                type: "checkbox",
+                key: "lem_add",
+                label: "Add-ons",
+                choices: [
+                  { id: "mint", label: "Add Mint", priceDelta: 0.50, timeDelta: 0 },
+                  { id: "extra_lemon", label: "Extra Lemon", priceDelta: 0.25, timeDelta: 0 },
+                ]
+              }
+            ]
+          },
+          {
+            id: "latte",
+            name: "Iced Latte",
+            price: 5.50,
+            time: 3,
+            note: "espresso + milk",
+            options: [
+              {
+                type: "radio",
+                key: "milk",
+                label: "Milk",
+                choices: [
+                  { id: "whole", label: "Whole Milk (default)", priceDelta: 0, timeDelta: 0 },
+                  { id: "oat", label: "Oat Milk", priceDelta: 0.75, timeDelta: 0 },
+                  { id: "almond", label: "Almond Milk", priceDelta: 0.75, timeDelta: 0 },
+                ],
+                default: "whole"
+              },
+              {
+                type: "radio",
+                key: "ice",
+                label: "Ice Level",
+                choices: [
+                  { id: "regular", label: "Regular Ice", priceDelta: 0, timeDelta: 0 },
+                  { id: "less", label: "Less Ice", priceDelta: 0, timeDelta: 0 },
+                  { id: "none", label: "No Ice", priceDelta: 0, timeDelta: 0 },
+                ],
+                default: "regular"
+              },
+              {
+                type: "checkbox",
+                key: "latte_add",
+                label: "Add-ons",
+                choices: [
+                  { id: "vanilla", label: "Vanilla Syrup", priceDelta: 0.60, timeDelta: 0 },
+                  { id: "extra_shot", label: "Extra Espresso Shot", priceDelta: 1.20, timeDelta: 1 },
+                ]
+              }
+            ]
+          },
         ]
       },
       {
         category: "Desserts",
         items: [
-          { id: "cheesecake", name: "New York Cheesecake", price: 8.00, time: 0, note: "berry drizzle" },
-          { id: "brownie", name: "Warm Chocolate Brownie", price: 7.50, time: 3, note: "vanilla scoop" },
-          { id: "tiramisu", name: "Tiramisu", price: 8.50, time: 0, note: "classic Italian" },
+          {
+            id: "cheesecake",
+            name: "New York Cheesecake",
+            price: 8.00,
+            time: 0,
+            note: "berry drizzle",
+            options: [
+              {
+                type: "radio",
+                key: "topping",
+                label: "Topping",
+                choices: [
+                  { id: "berry", label: "Berry Drizzle (default)", priceDelta: 0, timeDelta: 0 },
+                  { id: "caramel", label: "Salted Caramel", priceDelta: 0.50, timeDelta: 0 },
+                  { id: "choco", label: "Chocolate Sauce", priceDelta: 0.50, timeDelta: 0 },
+                ],
+                default: "berry"
+              }
+            ]
+          },
+          {
+            id: "brownie",
+            name: "Warm Chocolate Brownie",
+            price: 7.50,
+            time: 3,
+            note: "with vanilla scoop",
+            options: [
+              {
+                type: "radio",
+                key: "icecream",
+                label: "Ice Cream",
+                choices: [
+                  { id: "vanilla", label: "Vanilla (default)", priceDelta: 0, timeDelta: 0 },
+                  { id: "choco", label: "Chocolate", priceDelta: 0, timeDelta: 0 },
+                  { id: "strawberry", label: "Strawberry", priceDelta: 0, timeDelta: 0 },
+                ],
+                default: "vanilla"
+              },
+              {
+                type: "checkbox",
+                key: "brownie_add",
+                label: "Add-ons",
+                choices: [
+                  { id: "nuts", label: "Add Nuts", priceDelta: 0.75, timeDelta: 0 },
+                  { id: "extra_sauce", label: "Extra Chocolate Sauce", priceDelta: 0.50, timeDelta: 0 },
+                ]
+              }
+            ]
+          },
+          {
+            id: "tiramisu",
+            name: "Tiramisu",
+            price: 8.50,
+            time: 0,
+            note: "classic Italian",
+            options: [
+              {
+                type: "checkbox",
+                key: "tira_prefs",
+                label: "Preferences",
+                choices: [
+                  { id: "less_cocoa", label: "Less Cocoa", priceDelta: 0, timeDelta: 0 },
+                  { id: "extra_cocoa", label: "Extra Cocoa", priceDelta: 0, timeDelta: 0 },
+                ]
+              }
+            ]
+          },
         ]
       }
     ];
 
     // ====== STATE ======
-    // cart: { [id]: quantity }
-    const cart = {};
-    const itemById = Object.fromEntries(
-      MENU.flatMap(c => c.items.map(i => [i.id, i]))
-    );
+    // cart key includes customization so that different options become different cart lines.
+    // cart: { [cartKey]: { itemId, qty, optionsState } }
+    const cart = new Map(); // cartKey -> { itemId, qty, optionsState }
+    const itemById = Object.fromEntries(MENU.flatMap(c => c.items.map(i => [i.id, i])));
+
+    // default selections state for each item (so user can set options before adding)
+    // selectionState[itemId] = { [opt.key]: selectedValue(s) }
+    const selectionState = {};
 
     // ====== HELPERS ======
     const money = (n) => `$${n.toFixed(2)}`;
 
-    function cartItemCount(){
-      return Object.values(cart).reduce((a,b)=>a+b,0);
+    function deepClone(obj){ return JSON.parse(JSON.stringify(obj)); }
+
+    function initSelectionState(){
+      MENU.forEach(sec=>{
+        sec.items.forEach(item=>{
+          const st = {};
+          (item.options || []).forEach(opt=>{
+            if (opt.type === "radio") st[opt.key] = opt.default ?? (opt.choices?.[0]?.id ?? null);
+            if (opt.type === "checkbox") st[opt.key] = [];
+          });
+          selectionState[item.id] = st;
+        });
+      });
     }
 
-    // For estimated time: take the MAX item prep time among items in cart.
-    // (More realistic than summing everything; adjust if you want sum.)
-    function cartEstimatedTime(){
-      let maxT = 0;
-      for (const [id, qty] of Object.entries(cart)) {
-        if (qty > 0) maxT = Math.max(maxT, itemById[id].time);
-      }
-      return maxT;
+    function optionsToLabelLines(item, optsState){
+      const lines = [];
+      (item.options || []).forEach(opt=>{
+        const v = optsState?.[opt.key];
+        if (opt.type === "radio" && v){
+          const choice = opt.choices.find(c=>c.id===v);
+          if (choice) lines.push(`${opt.label}: ${choice.label}`);
+        }
+        if (opt.type === "checkbox" && Array.isArray(v) && v.length){
+          const labels = v.map(id => opt.choices.find(c=>c.id===id)?.label).filter(Boolean);
+          if (labels.length) lines.push(`${opt.label}: ${labels.join(", ")}`);
+        }
+      });
+      return lines;
+    }
+
+    function optionsPriceDelta(item, optsState){
+      let delta = 0;
+      (item.options || []).forEach(opt=>{
+        const v = optsState?.[opt.key];
+        if (opt.type === "radio" && v){
+          const c = opt.choices.find(x=>x.id===v);
+          if (c) delta += (c.priceDelta || 0);
+        }
+        if (opt.type === "checkbox" && Array.isArray(v)){
+          v.forEach(id=>{
+            const c = opt.choices.find(x=>x.id===id);
+            if (c) delta += (c.priceDelta || 0);
+          });
+        }
+      });
+      return delta;
+    }
+
+    function optionsTimeDelta(item, optsState){
+      let delta = 0;
+      (item.options || []).forEach(opt=>{
+        const v = optsState?.[opt.key];
+        if (opt.type === "radio" && v){
+          const c = opt.choices.find(x=>x.id===v);
+          if (c) delta += (c.timeDelta || 0);
+        }
+        if (opt.type === "checkbox" && Array.isArray(v)){
+          v.forEach(id=>{
+            const c = opt.choices.find(x=>x.id===id);
+            if (c) delta += (c.timeDelta || 0);
+          });
+        }
+      });
+      return delta;
+    }
+
+    function makeCartKey(itemId, optsState){
+      // stable stringify: sort checkbox arrays for consistent key
+      const normalized = deepClone(optsState || {});
+      Object.keys(normalized).forEach(k=>{
+        if (Array.isArray(normalized[k])) normalized[k].sort();
+      });
+      return `${itemId}::${JSON.stringify(normalized)}`;
+    }
+
+    function cartItemCount(){
+      let n = 0;
+      for (const v of cart.values()) n += v.qty;
+      return n;
     }
 
     function cartTotal(){
       let total = 0;
-      for (const [id, qty] of Object.entries(cart)) {
-        total += itemById[id].price * qty;
+      for (const entry of cart.values()){
+        const item = itemById[entry.itemId];
+        const unit = item.price + optionsPriceDelta(item, entry.optionsState);
+        total += unit * entry.qty;
       }
       return total;
     }
 
-    function setQty(id, qty){
-      if (qty <= 0) delete cart[id];
-      else cart[id] = qty;
+    // estimated time: max of (base time + option time delta) across cart lines
+    function cartEstimatedTime(){
+      let maxT = 0;
+      for (const entry of cart.values()){
+        const item = itemById[entry.itemId];
+        const t = item.time + optionsTimeDelta(item, entry.optionsState);
+        maxT = Math.max(maxT, t);
+      }
+      return maxT;
+    }
+
+    function addCurrentSelection(itemId){
+      const item = itemById[itemId];
+      const opts = deepClone(selectionState[itemId] || {});
+      const key = makeCartKey(itemId, opts);
+      const existing = cart.get(key);
+      if (existing) existing.qty += 1;
+      else cart.set(key, { itemId, qty: 1, optionsState: opts });
+      renderAll();
+    }
+
+    function changeCartQty(cartKey, delta){
+      const e = cart.get(cartKey);
+      if (!e) return;
+      e.qty += delta;
+      if (e.qty <= 0) cart.delete(cartKey);
+      renderAll();
+    }
+
+    function clearCart(){
+      cart.clear();
       renderAll();
     }
 
@@ -519,12 +949,12 @@
         cat.appendChild(title);
 
         section.items.forEach(item => {
-          const qty = cart[item.id] || 0;
-
           const row = document.createElement("div");
           row.className = "item";
 
           const left = document.createElement("div");
+
+          // base info
           left.innerHTML = `
             <h3>${item.name}</h3>
             <div class="meta">
@@ -534,18 +964,86 @@
             </div>
           `;
 
+          // options UI
+          if (item.options && item.options.length){
+            const optsWrap = document.createElement("div");
+            optsWrap.className = "opts";
+
+            item.options.forEach(opt=>{
+              const block = document.createElement("div");
+              block.className = "optBlock";
+
+              const head = document.createElement("div");
+              head.className = "optTitle";
+              head.innerHTML = `
+                <span>${opt.label}</span>
+                <span class="optHint">${opt.type === "radio" ? "choose 1" : "choose any"}</span>
+              `;
+              block.appendChild(head);
+
+              const grid = document.createElement("div");
+              grid.className = "optGrid";
+
+              opt.choices.forEach(choice=>{
+                const id = `${item.id}__${opt.key}__${choice.id}`;
+                const row2 = document.createElement("div");
+                row2.className = "optRow";
+
+                const input = document.createElement("input");
+                input.id = id;
+                input.name = `${item.id}__${opt.key}`;
+                input.type = opt.type;
+                input.value = choice.id;
+
+                // set checked based on selectionState
+                const st = selectionState[item.id];
+                if (opt.type === "radio"){
+                  input.checked = st[opt.key] === choice.id;
+                  input.addEventListener("change", () => {
+                    selectionState[item.id][opt.key] = choice.id;
+                  });
+                } else {
+                  input.checked = (st[opt.key] || []).includes(choice.id);
+                  input.addEventListener("change", () => {
+                    const arr = selectionState[item.id][opt.key] || [];
+                    if (input.checked) arr.push(choice.id);
+                    else selectionState[item.id][opt.key] = arr.filter(x=>x!==choice.id);
+                  });
+                }
+
+                const lbl = document.createElement("label");
+                lbl.setAttribute("for", id);
+
+                const p = choice.priceDelta ? `+${money(choice.priceDelta)}` : "+$0.00";
+                const t = choice.timeDelta ? `+${choice.timeDelta} min` : "+0 min";
+
+                lbl.innerHTML = `
+                  <div class="optName">${choice.label}</div>
+                  <div class="optSub">
+                    <span class="optP">${p}</span>
+                    <span>${t}</span>
+                  </div>
+                `;
+
+                row2.appendChild(input);
+                row2.appendChild(lbl);
+                grid.appendChild(row2);
+              });
+
+              block.appendChild(grid);
+              optsWrap.appendChild(block);
+            });
+
+            left.appendChild(optsWrap);
+          }
+
+          // right controls: add with current options
           const right = document.createElement("div");
           right.className = "controls";
           right.innerHTML = `
-            <button class="btn icon minus" aria-label="Decrease">−</button>
-            <div class="qty" aria-label="Quantity">${qty}</div>
-            <button class="btn icon plus" aria-label="Increase">+</button>
+            <button class="btn plus" aria-label="Add with selected options">Add</button>
           `;
-
-          const [minusBtn, , plusBtn] = right.children;
-
-          minusBtn.addEventListener("click", () => setQty(item.id, (cart[item.id] || 0) - 1));
-          plusBtn.addEventListener("click",  () => setQty(item.id, (cart[item.id] || 0) + 1));
+          right.querySelector("button").addEventListener("click", ()=> addCurrentSelection(item.id));
 
           row.appendChild(left);
           row.appendChild(right);
@@ -560,24 +1058,25 @@
     function renderCart(){
       const list = document.getElementById("cartList");
       const empty = document.getElementById("emptyState");
-
       list.innerHTML = "";
 
-      const ids = Object.keys(cart);
       const count = cartItemCount();
       document.getElementById("cartCount").textContent = `${count} item${count === 1 ? "" : "s"}`;
       document.getElementById("totalPrice").textContent = money(cartTotal());
       document.getElementById("totalTime").textContent = `${cartEstimatedTime()} min`;
 
-      if (ids.length === 0){
+      if (cart.size === 0){
         empty.style.display = "block";
         return;
       }
       empty.style.display = "none";
 
-      ids.forEach(id => {
-        const item = itemById[id];
-        const qty = cart[id];
+      for (const [key, entry] of cart.entries()){
+        const item = itemById[entry.itemId];
+        const optLines = optionsToLabelLines(item, entry.optionsState);
+        const unit = item.price + optionsPriceDelta(item, entry.optionsState);
+        const t = item.time + optionsTimeDelta(item, entry.optionsState);
+        const subtotal = unit * entry.qty;
 
         const li = document.createElement("li");
         li.className = "cartItem";
@@ -586,30 +1085,37 @@
         left.innerHTML = `
           <div class="name">${item.name}</div>
           <div class="sub">
-            <span class="chip">${money(item.price)} each</span>
-            <span class="chip">~ ${item.time} min</span>
-            <span class="chip">${qty} ×</span>
+            <span class="chip">${money(unit)} each</span>
+            <span class="chip">~ ${t} min</span>
+            <span class="chip">${entry.qty} ×</span>
+            <span class="chip">Subtotal: ${money(subtotal)}</span>
           </div>
+          ${optLines.length ? `<div class="sub" style="margin-top:6px">${optLines.map(s=>`<span class="chip">${escapeHtml(s)}</span>`).join("")}</div>` : ""}
         `;
 
         const right = document.createElement("div");
         right.className = "right";
         right.innerHTML = `
-          <div class="qty">${qty}</div>
           <button class="btn icon minus" aria-label="Decrease">−</button>
+          <div class="qty">${entry.qty}</div>
           <button class="btn icon plus" aria-label="Increase">+</button>
         `;
-
-        const minusBtn = right.querySelector(".minus");
-        const plusBtn  = right.querySelector(".plus");
-
-        minusBtn.addEventListener("click", () => setQty(id, qty - 1));
-        plusBtn.addEventListener("click",  () => setQty(id, qty + 1));
+        right.querySelector(".minus").addEventListener("click", ()=> changeCartQty(key, -1));
+        right.querySelector(".plus").addEventListener("click", ()=> changeCartQty(key, +1));
 
         li.appendChild(left);
         li.appendChild(right);
         list.appendChild(li);
-      });
+      }
+    }
+
+    function escapeHtml(str){
+      return String(str)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
     }
 
     function renderAll(){
@@ -621,23 +1127,33 @@
     function buildSummaryText(){
       const lines = [];
       lines.push("ORDER SUMMARY");
-      lines.push("—".repeat(32));
+      lines.push("—".repeat(40));
 
-      const ids = Object.keys(cart);
-      if (ids.length === 0){
+      if (cart.size === 0){
         lines.push("No items selected.");
         return lines.join("\n");
       }
 
-      // nice ordering: keep menu order
-      const orderedIds = MENU.flatMap(c => c.items.map(i => i.id)).filter(id => cart[id]);
-
-      orderedIds.forEach(id => {
-        const item = itemById[id];
-        const qty = cart[id];
-        const subtotal = item.price * qty;
-        lines.push(`${qty} × ${item.name}  (${money(item.price)} ea)  →  ${money(subtotal)}`);
+      // keep menu order, but also include different option variants
+      const menuOrder = MENU.flatMap(c => c.items.map(i => i.id));
+      // sort cart entries by menu order, stable
+      const entries = Array.from(cart.entries()).sort((a,b)=>{
+        const ai = menuOrder.indexOf(a[1].itemId);
+        const bi = menuOrder.indexOf(b[1].itemId);
+        return ai - bi;
       });
+
+      for (const [key, entry] of entries){
+        const item = itemById[entry.itemId];
+        const unit = item.price + optionsPriceDelta(item, entry.optionsState);
+        const subtotal = unit * entry.qty;
+        const optLines = optionsToLabelLines(item, entry.optionsState);
+
+        lines.push(`${entry.qty} × ${item.name}  (${money(unit)} ea)  →  ${money(subtotal)}`);
+        if (optLines.length){
+          optLines.forEach(s => lines.push(`   - ${s}`));
+        }
+      }
 
       lines.push("");
       lines.push(`Total: ${money(cartTotal())}`);
@@ -656,10 +1172,7 @@
     }
 
     // ====== EVENTS ======
-    document.getElementById("clearBtn").addEventListener("click", () => {
-      for (const k of Object.keys(cart)) delete cart[k];
-      renderAll();
-    });
+    document.getElementById("clearBtn").addEventListener("click", clearCart);
 
     document.getElementById("placeOrderBtn").addEventListener("click", () => {
       const summary = buildSummaryText();
@@ -677,7 +1190,6 @@
         await navigator.clipboard.writeText(text);
         alert("Copied to clipboard.");
       }catch{
-        // fallback
         const ta = document.createElement("textarea");
         ta.value = text;
         document.body.appendChild(ta);
@@ -690,12 +1202,12 @@
 
     document.getElementById("newOrderBtn").addEventListener("click", () => {
       closeModal();
-      for (const k of Object.keys(cart)) delete cart[k];
-      renderAll();
+      clearCart();
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
     // ====== INIT ======
+    initSelectionState();
     renderAll();
   </script>
 </body>
